@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>URL Shortener</title>
+</head>
+<body>
+<div class="container">
+    <h1>URL Shortener</h1>
+    <form action="/Urls" method="post" class="my-4 form-inline">
+      <input type="text" name="fullUrl" placeholder="Enter the URL" class="form-control col mr-2" required>
+      <button type="submit" class="btn btn-success" >Shorten</button>
+    </form>
+    <table class="table table-striped table-responsive">
+      <thead>
+          <tr>
+              <th>Full URL</th>
+              <th>Short URL</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% ShortUrls.forEach(ShortUrl => { %>
+            <tr>
+                <td><a href="<%= ShortUrl.full %>"><%= ShortUrl.full%></a></td>
+                <td><a href="<%= ShortUrl.short %>"><%= ShortUrl.short%></a></td>
+            </tr>
+        <% }) %>
+      </tbody>
+    </table>
+</div>
+
+</body>
+</html>
